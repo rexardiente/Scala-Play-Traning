@@ -1,0 +1,24 @@
+@import helper._
+
+@(
+  signinForm: Form[models.domain.Authentication]
+)(
+  implicit request: RequestHeader,
+  msg: Messages
+)
+
+@main("Welcome to Play") {
+  <section>
+    <header id="header" class="">
+      <h1>Welcome to Play!</h1>
+    </header>
+  <div class="content">
+    @form(action = CSRF(routes.HomeController.signin)) {
+      @inputText(signinForm("username"))
+      @inputPassword(signinForm("password"))
+
+      <input class="button" type="submit" value="signin">
+    }
+  </div>
+  </section>
+}

@@ -1,0 +1,15 @@
+body {
+  width: 100%;
+  background: #0043;
+  color: #000;
+}
+
+.container {
+  width:  100%;
+}
+
+.row {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 3rem;
+}

@@ -1,0 +1,35 @@
+@import helper._
+
+@(
+  addForm: Form[(String, String, Int, String, String, Option[java.util.Date])]
+)(
+  implicit request: RequestHeader,
+  msg: Messages
+)
+
+@scripts = {
+  <script type="text/javascript">alert("hello !");</script>
+}
+
+@main("dashboard to Play") {
+  <h1>Play dashboard!</h1>
+  <div class="container">
+    <div class="row">
+      @form(action = CSRF(routes.HomeController.addUser)) {
+        @inputText(addForm("firstname"))
+        @inputText(addForm("lastname"))
+        @inputText(addForm("age"))
+        @inputText(addForm("username"))
+        @inputPassword(addForm("password"))
+
+        <input class="button" type="submit" value="Add user"/>
+      }
+    </div>
+    <div class="row">
+      <p>List of Users</p>
+      <div id="users-list"></div>
+      <button type="button" onclick="fecthUsers();">Click me!!!</button>
+      <input type="button" class="users" id="users" value="fecthUsers" onclick="fecthUsers();" />
+    </div>
+  </div>
+}
